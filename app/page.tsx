@@ -1,0 +1,8 @@
+import Link from "next/link";
+import { getActivities } from "@/lib/content/loader";
+import { HomePlay } from "@/components/HomePlay";
+import { ActivityCard } from "@/components/ActivityCard";
+export default function HomePage() {
+  const activities = getActivities();
+  return <main id="top"><section className="hero"><div className="wrap"><HomePlay activities={activities} /></div></section><section className="block" id="theme"><div className="wrap"><div className="theme-panel w2"><p className="eyebrow">28 个月 · 本月主题</p><h2>认识情绪</h2><p>这个阶段的宝宝开始有强烈的感受，却还说不清。大人帮他们把感受说出来，就是很好的陪伴。</p><div className="tips-grid"><article className="tip-card w3"><h3>先说出来</h3><p>宝宝难过时，可以试着说：“你还想继续玩，对吗？”</p></article><article className="tip-card w1"><h3>照镜子</h3><p>一起对着镜子做开心、难过的表情，说出对应的词。</p></article><article className="tip-card w2"><h3>读情绪绘本</h3><p>读到人物表情时停一停，聊聊角色可能是什么感受。</p></article></div></div></div></section><section className="block" id="faq"><div className="wrap"><h2>家长常问</h2><details className="faq-item w2"><summary>宝宝总说“不要”，是不是太叛逆？</summary><p>两岁左右，宝宝开始练习表达自己的想法。可以给两个都能接受的选择，让宝宝参与决定。</p></details><details className="faq-item w1"><summary>每个宝宝的成长速度都一样吗？</summary><p>宝宝的发展有个体差异。若你对孩子的发展有担心，可以联系儿科医生或儿童保健专业人员了解情况。</p></details><details className="faq-item w2"><summary>在家玩需要准备很多材料吗？</summary><p>不需要。活动优先使用家中常见物品，也可以根据宝宝的兴趣随时调整。</p></details></div></section><section className="block"><div className="wrap"><h2>今天可以试试</h2><div className="activity-grid">{activities.slice(0, 3).map((activity, i) => <ActivityCard activity={activity} index={i} key={activity.slug} />)}</div><p><Link className="text-link" href="/activities/">浏览全部活动 →</Link></p></div></section></main>;
+}

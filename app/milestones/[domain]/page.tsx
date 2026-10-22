@@ -1,0 +1,10 @@
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { PageHeading } from "@/components/Site";
+import { getMilestones } from "@/lib/content/loader";
+const domains = [{ id: "language", title: "语言" }, { id: "movement", title: "大运动" }, { id: "fine-motor", title: "精细动作" }, { id: "cognition", title: "认知" }, { id: "social-emotional", title: "社交情绪" }, { id: "self-care", title: "生活自理" }];
+export const dynamicParams = false;
+export function generateStaticParams() { return domains.map(({ id }) => ({ domain: id })); }
+export async function generateMetadata({ params }: { params: Promise<{ domain: string }> }): Promise<Metadata> { const { domain } = await params; return { title: `${domains.find((item) => item.id === domain)?.title ?? "成长"}成长参考` }; }
+export default async function DomainPage({ params }: { params: Promise<{ domain: string }> }) { const { domain } = await params; const item = domains.find((entry) => entry.id === domain); if (!item) notFound(); const milestone = getMilestones().find((entry) => entry.domain === item.title); if (!milestone) notFound(); return <main className="page-main"><div className="wrap"><aside className="callout w3">发育有个体差异，以下内容仅供参考，不能替代专业诊断。</aside><PageHeading kicker={`成长地图 · ${milestone.monthRange[0]}–${milestone.monthRange[1]} 个月`} title={`${item.title}发展参考`} description="以下是内容占位示例，具体里程碑及咨询建议待专业人员审核后补充。" /><section className="content-card w2"><h2>多数宝宝能做到</h2><ul>{milestone.typical.map((text) => <li key={text}>{text}</li>)}</ul><p>请结合宝宝平时的状态观察，不需要逐条对照。</p></section><section className="content-card w1"><h2>可以多留意</h2><ul>{milestone.watchPoints.map((text) => <li key={text}>{text}</li>)}</ul></section><aside className="callout alert w3"><h2>什么时候建议咨询医生</h2><p>{milestone.seeDoctorHint === "PENDING" ? "待专家提供内容。若你对宝宝的发展有担心，可以联系儿科医生或儿童保健专业人员。" : milestone.seeDoctorHint}</p><p>审核状态：{milestone.reviewer === "PENDING" ? "待专家审核" : milestone.reviewer}</p></aside><Link className="text-link" href="/milestones/">← 返回成长地图</Link></div></main>; }

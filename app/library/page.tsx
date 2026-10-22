@@ -1,0 +1,6 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { PageHeading } from "@/components/Site";
+export const metadata: Metadata = { title: "绘本与歌谣", description: "适合 2–3 岁宝宝的亲子阅读灵感与共读小提示。" };
+const books = [{ slug: "feelings", title: "认识情绪的小绘本", age: "24–36 个月", tip: "读到角色表情时停一停，邀请宝宝指一指、说一说。", emoji: "😊" }, { slug: "animals", title: "动物朋友在哪里", age: "24–36 个月", tip: "模仿动物叫声，也可以把书里的动物和玩具配对。", emoji: "🐻" }, { slug: "daily", title: "忙碌的一天", age: "24–36 个月", tip: "把书中熟悉的生活步骤和宝宝当天的经历连起来。", emoji: "☀️" }];
+export default function LibraryPage() { return <main className="page-main"><div className="wrap"><PageHeading kicker="一起读一读" title="绘本与歌谣" description="用共读和节奏游戏陪宝宝认识身边的事。封面为占位插画，后续将替换为获授权素材。" /><div className="book-grid">{books.map((book, i) => <article className={`activity-card w${i % 3 + 1}`} data-pagefind-body key={book.slug}><div className="book-cover" role="img" aria-label={`${book.title}封面占位图`}>{book.emoji}</div><h3><Link href={`/library/${book.slug}/`}>{book.title}</Link></h3><p>适合月龄：{book.age}</p><p>{book.tip}</p><Link className="text-link" href={`/library/${book.slug}/`}>共读小提示 →</Link></article>)}</div><aside className="callout w3">歌谣页面提供亲子互动提示，不收录受版权保护的歌词全文。</aside></div></main>; }

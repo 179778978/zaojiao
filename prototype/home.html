@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>小芽早教｜2–3岁亲子游戏</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=ZCOOL+KuaiLe&display=swap">
+<style>
+:root{
+  --paper:#FFF8E7;--card:#FFFDF5;--ink:#3A2E28;--soft:#6B5C52;
+  --butter:#FFE08A;--mint:#BFE5CF;--sky:#C6E2F5;--pink:#FFCBC4;
+  --berry:#D6456B;--on-berry:#fff;--dot:rgba(58,46,40,.10);
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#262220;--card:#322C28;--ink:#F5EAD8;--soft:#C9B9A6;
+    --butter:#6B5A22;--mint:#355443;--sky:#31506A;--pink:#6A3C3A;
+    --berry:#F27C9B;--on-berry:#2A1A20;--dot:rgba(245,234,216,.10);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#262220;--card:#322C28;--ink:#F5EAD8;--soft:#C9B9A6;
+  --butter:#6B5A22;--mint:#355443;--sky:#31506A;--pink:#6A3C3A;
+  --berry:#F27C9B;--on-berry:#2A1A20;--dot:rgba(245,234,216,.10);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  background-image:radial-gradient(var(--dot) 1.4px,transparent 1.6px);background-size:26px 26px;
+  font:400 17px/1.75 "Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"ZCOOL KuaiLe","Noto Sans SC","PingFang SC",sans-serif;font-weight:400;line-height:1.3;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--berry);outline-offset:3px}
+
+/* hand-drawn borders: each shape wobbles differently */
+.w1{border:2.5px solid var(--ink);border-radius:28px 12px 30px 14px/14px 30px 12px 26px;box-shadow:5px 5px 0 var(--ink)}
+.w2{border:2.5px solid var(--ink);border-radius:14px 30px 12px 28px/30px 12px 28px 14px;box-shadow:4px 4px 0 var(--ink)}
+.w3{border:2.5px solid var(--ink);border-radius:46px 16px 40px 18px/20px 38px 16px 44px;box-shadow:3px 3px 0 var(--ink)}
+
+header{padding:18px 0 6px}
+header .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 24px}
+.logo{display:flex;align-items:center;gap:8px;font-family:"ZCOOL KuaiLe","Noto Sans SC",sans-serif;font-size:26px;text-decoration:none}
+nav{display:flex;gap:6px;flex-wrap:wrap}
+nav a{padding:4px 14px;text-decoration:none;font-weight:500;border-radius:20px 8px 22px 8px/8px 22px 8px 20px}
+nav a:hover{background:var(--butter)}
+
+.hero{padding:26px 0 44px}
+.hero-grid{display:grid;gap:28px;grid-template-columns:1fr;align-items:start}
+@media(min-width:820px){.hero-grid{grid-template-columns:1fr 1.1fr;gap:44px}}
+.hero h1{font-size:clamp(40px,8vw,64px);display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.hero p.lead{margin:12px 0 22px;color:var(--soft);max-width:30em}
+.controls{display:grid;gap:16px}
+label.field{display:flex;align-items:center;gap:10px;font-weight:500}
+select{font:inherit;color:var(--ink);background:var(--card);padding:6px 14px;border:2.5px solid var(--ink);border-radius:16px 8px 18px 8px/8px 18px 8px 16px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{font:inherit;font-weight:500;color:var(--ink);background:var(--card);cursor:pointer;padding:4px 16px;border:2.5px solid var(--ink);border-radius:22px 10px 24px 10px/10px 24px 10px 22px}
+.chip[aria-pressed="true"]{background:var(--butter);box-shadow:3px 3px 0 var(--ink);transform:translate(-1px,-1px)}
+.go{font:inherit;font-family:"ZCOOL KuaiLe","Noto Sans SC",sans-serif;font-size:26px;cursor:pointer;color:var(--on-berry);background:var(--berry);padding:12px 34px;justify-self:start;border:2.5px solid var(--ink);border-radius:40px 14px 44px 16px/18px 40px 14px 42px;box-shadow:5px 5px 0 var(--ink);transition:transform .12s,box-shadow .12s}
+.go:active{transform:translate(4px,4px);box-shadow:1px 1px 0 var(--ink)}
+
+.note{position:relative;background:var(--card);padding:26px 24px 24px;transform:rotate(1.2deg);min-height:340px}
+.note::before{content:"";position:absolute;top:-14px;left:50%;width:96px;height:26px;margin-left:-48px;background:var(--mint);opacity:.9;transform:rotate(-3deg);border:2px solid var(--ink);border-radius:4px}
+.note.pop{animation:pop .35s ease-out}
+@keyframes pop{0%{transform:rotate(-2deg) scale(.94)}100%{transform:rotate(1.2deg) scale(1)}}
+.note .empty{color:var(--soft);padding-top:34px}
+.note .empty b{display:block;font:400 26px/1.3 "ZCOOL KuaiLe","Noto Sans SC",sans-serif;color:var(--ink);margin-bottom:6px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 12px}
+.tag{padding:0 12px;font-size:15px;font-weight:500;border:2px solid var(--ink);border-radius:14px 6px 16px 6px/6px 16px 6px 14px}
+.note h2{font-size:30px;margin-top:10px}
+.note h3{font-size:19px;margin:14px 0 2px}
+.note ol{margin:4px 0 0;padding-left:1.3em}
+.note ol li{margin:2px 0}
+.note p{margin:2px 0}
+.safe{margin-top:14px;font-size:15px;color:var(--soft);border-top:2px dashed var(--soft);padding-top:10px}
+
+section.block{padding:30px 0}
+.block h2{font-size:clamp(30px,5vw,40px);margin-bottom:18px}
+.theme{background:var(--sky);padding:28px 24px}
+.theme .tips{display:grid;gap:18px;margin-top:20px;grid-template-columns:1fr}
+@media(min-width:700px){.theme .tips{grid-template-columns:repeat(3,1fr)}}
+.tip{background:var(--card);padding:16px 18px}
+.tip:nth-child(1){transform:rotate(-1.2deg)}
+.tip:nth-child(2){transform:rotate(.8deg)}
+.tip:nth-child(3){transform:rotate(-.5deg)}
+.tip h3{font-size:21px;margin-bottom:4px}
+.tip p{margin:0;font-size:16px;color:var(--soft)}
+details{background:var(--card);margin-bottom:16px;padding:0}
+summary{cursor:pointer;padding:12px 20px;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"＋";font-weight:400}
+details[open] summary::after{content:"－"}
+details p{margin:0;padding:0 20px 16px;color:var(--soft)}
+footer{padding:30px 0 40px;color:var(--soft);font-size:15px}
+footer .wrap{border-top:2.5px dashed var(--soft);padding-top:22px}
+@media(prefers-reduced-motion:reduce){.note.pop{animation:none}.go{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#3A2E28" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 30V16" stroke="currentColor"/><path d="M17 17C17 9 11 6 5 7c0 7 5 11 12 10Z" fill="#BFE5CF"/><path d="M17 14c0-6 4-9 11-8 0 6-4 9-11 8Z" fill="#FFE08A"/></svg>
+      小芽早教
+    </a>
+    <nav aria-label="主导航">
+      <a href="#play">今天玩什么</a>
+      <a href="#theme">本月主题</a>
+      <a href="#faq">家长问答</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" id="play">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>今天玩什么？
+        <svg width="62" height="62" viewBox="0 0 62 62" fill="none" stroke="#3A2E28" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="31" cy="31" r="12" fill="#FFE08A"/><path d="M31 6v7M31 49v7M6 31h7M49 31h7M13 13l5 5M44 44l5 5M49 13l-5 5M18 44l-5 5"/></svg>
+      </h1>
+      <p class="lead">每天10分钟，用家里现有的东西，和2–3岁的宝宝玩一个小游戏。</p>
+      <div class="controls">
+        <label class="field">宝宝现在
+          <select id="month" aria-label="宝宝月龄"></select>
+        </label>
+        <div class="chips" id="chips" role="group" aria-label="想练的能力"></div>
+        <button class="go" id="go" type="button">抽一个游戏</button>
+      </div>
+    </div>
+    <article class="note w1" id="note" aria-live="polite">
+      <div class="empty"><b>还没抽到游戏</b>选好月龄和想练的能力，按“抽一个游戏”，这里会出现今天的玩法。</div>
+    </article>
+  </div>
+</section>
+
+<section class="block" id="theme">
+  <div class="wrap">
+    <div class="theme w2">
+      <h2>本月主题：认识情绪</h2>
+      <p style="margin:0;max-width:34em">这个阶段的宝宝开始有强烈的感受，却还说不清。大人帮他们把感受说出来，就是最好的练习。</p>
+      <div class="tips">
+        <div class="tip w3"><h3>先说出来</h3><p>宝宝哭闹时，先说“你很生气，因为玩具被拿走了”，再处理问题。</p></div>
+        <div class="tip w3"><h3>照镜子</h3><p>一起对着镜子做开心、难过、惊讶的表情，说出对应的词。</p></div>
+        <div class="tip w3"><h3>读情绪绘本</h3><p>每天睡前一本，读到人物表情时停下来，问宝宝“他怎么了”。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="faq">
+  <div class="wrap">
+    <h2>家长常问</h2>
+    <details class="w2"><summary>宝宝总说“不要”，是不是太叛逆？</summary><p>两岁左右宝宝开始意识到“我”是独立的人，说“不要”是自我意识发展的正常表现。给两个都可以接受的选择，比如“穿蓝袜子还是黄袜子”，会比直接命令更有效。</p></details>
+    <details class="w1"><summary>宝宝还不太会说话，要着急吗？</summary><p>语言发育个体差异较大。如果到30个月仍几乎没有两词短语，或对叫名字没有反应，建议咨询儿科医生或儿童保健医生做评估。</p></details>
+    <details class="w2"><summary>可以让宝宝看动画片吗？</summary><p>2岁以上建议每天屏幕时间尽量控制在1小时内，并且由家长陪看、边看边聊。比起时长，更重要的是不替代互动和睡眠。</p></details>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>这是首页原型，游戏内容为示例，正式上线前需由儿童发展或托育专业人士审核。每个宝宝发育节奏不同，本站内容不能替代医生的诊断。</p>
+  </div>
+</footer>
+
+<script>
+var ABS=[["all","全部"],["语言","🗣 语言"],["大运动","🏃 大运动"],["精细动作","✋ 精细动作"],["认知","🧩 认知"],["社交情绪","🤝 社交情绪"],["生活自理","🥄 生活自理"]];
+var COLOR={"语言":"var(--sky)","大运动":"var(--mint)","精细动作":"var(--butter)","认知":"var(--pink)","社交情绪":"var(--pink)","生活自理":"var(--mint)"};
+var ACTS=[
+{t:"小动物找家",a:"认知",m:10,min:24,mat:"毛绒玩具2–3个、纸盒或篮子",s:["把纸盒当“家”，说“小熊要回家啦”。","让宝宝把玩具一个个放进盒子里。","说出动物的名字和叫声，再换个位置重来。"],p:"分类、配对，以及动物名称的词汇。"},
+{t:"毛巾小船",a:"大运动",m:10,min:24,mat:"一条大毛巾、平整的地垫",s:["宝宝坐在毛巾上，抓紧两边。","大人慢慢拉着毛巾在地垫上“划船”。","边拉边唱歌，换宝宝来拉玩具小船。"],p:"平衡感和核心力量。",x:"只在平整的地垫上玩，拉得慢一点，全程扶好宝宝。"},
+{t:"瓶盖对对碰",a:"精细动作",m:10,min:26,mat:"3个不同大小的塑料瓶和配套的大号瓶盖",s:["把瓶子和瓶盖分开摆好。","示范拧上一个，再请宝宝试。","找对了就一起说“对啦”。"],p:"手腕转动和手眼协调。",x:"瓶盖要比宝宝的拳头大，全程看护，防止误吞。"},
+{t:"我说你指",a:"语言",m:5,min:24,mat:"一本宝宝熟悉的绘本",s:["翻到一页，说“小狗在哪里”。","等宝宝用手指出来。","再反过来，大人指，宝宝说名字。"],p:"听指令和词汇理解。"},
+{t:"情绪小脸",a:"社交情绪",m:10,min:28,mat:"纸盘、彩笔、镜子",s:["在纸盘上画笑脸和生气的脸。","一起对着镜子做同样的表情。","轻轻说“我生气了，我需要抱一抱”。"],p:"识别并说出自己的感受。"},
+{t:"自己穿袜子",a:"生活自理",m:5,min:30,mat:"一双宽松的袜子",s:["先把袜子套到宝宝的脚趾上。","让宝宝自己拉到脚后跟。","做到了就夸具体的动作：“你自己拉上来了。”"],p:"自理能力和手部力量。"},
+{t:"轮流滚球",a:"社交情绪",m:10,min:26,mat:"一个软球",s:["面对面坐着，把球滚给宝宝。","说“妈妈滚一下，宝宝滚一下”。","慢慢加长等待的时间。"],p:"轮流和等待。"},
+{t:"水中舀一舀",a:"精细动作",m:15,min:26,mat:"浅盆、勺子、小杯子、围兜",s:["在浅盆里放少量水。","示范用勺子把水舀进杯子。","让宝宝自己试，可以数一数舀了几勺。"],p:"手眼协调和对“满”“空”的理解。",x:"水要浅，大人全程在旁看护。"},
+{t:"儿歌手指谣",a:"语言",m:5,min:24,mat:"不需要材料",s:["选一首宝宝熟悉的儿歌。","边唱边配上手指动作。","唱到一半停下来，等宝宝接上最后一个词。"],p:"语言节奏和模仿。"},
+{t:"枕头障碍路",a:"大运动",m:15,min:30,mat:"靠垫、枕头、一张软垫",s:["把靠垫排成一条小路。","示范跨过去、爬过去。","宝宝走完后，一起换个摆法再来一次。"],p:"身体协调和空间感。",x:"周围不要放尖锐或坚硬的物品。"}
+];
+var sel=document.getElementById("month"),chips=document.getElementById("chips"),note=document.getElementById("note"),ab="all",last=-1;
+for(var i=24;i<=36;i++){var o=document.createElement("option");o.value=i;o.textContent=i+" 个月";if(i===28)o.selected=true;sel.appendChild(o)}
+ABS.forEach(function(x){var b=document.createElement("button");b.type="button";b.className="chip";b.textContent=x[1];b.setAttribute("aria-pressed",x[0]==="all"?"true":"false");
+ b.onclick=function(){ab=x[0];[].forEach.call(chips.children,function(c){c.setAttribute("aria-pressed","false")});b.setAttribute("aria-pressed","true")};chips.appendChild(b)});
+function show(a){
+ var h='<div class="meta"><span class="tag" style="background:'+COLOR[a.a]+'">'+a.a+'</span><span class="tag" style="background:var(--card)">'+a.m+' 分钟</span><span class="tag" style="background:var(--card)">'+a.min+' 个月起</span></div>'
+ +'<h2>'+a.t+'</h2><h3>需要准备</h3><p>'+a.mat+'</p><h3>怎么玩</h3><ol>'+a.s.map(function(s){return"<li>"+s+"</li>"}).join("")+'</ol><h3>在练什么</h3><p>'+a.p+'</p>'
+ +(a.x?'<p class="safe">安全提醒：'+a.x+'</p>':'');
+ note.innerHTML=h;note.classList.remove("pop");void note.offsetWidth;note.classList.add("pop");
+}
+document.getElementById("go").onclick=function(){
+ var mo=+sel.value;
+ var pool=ACTS.filter(function(a){return a.min<=mo&&(ab==="all"||a.a===ab)});
+ if(!pool.length){note.innerHTML='<div class="empty"><b>这个月龄暂时没有对应的游戏</b>换一个能力，或把月龄调大一点再试。</div>';return}
+ var c=pool.filter(function(a){return ACTS.indexOf(a)!==last});if(!c.length)c=pool;
+ var pick=c[Math.floor(Math.random()*c.length)];last=ACTS.indexOf(pick);show(pick);
+};
+</script>
+</body>
+</html>

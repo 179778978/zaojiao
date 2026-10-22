@@ -1,0 +1,14 @@
+{
+  "expo": {
+    "name": "小芽早教",
+    "slug": "xiaoya-zaojiao-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": { "supportsTablet": true, "bundleIdentifier": "com.xiaoya.zaojiao" },
+    "android": { "package": "com.xiaoya.zaojiao", "edgeToEdgeEnabled": true },
+    "plugins": ["expo-font", "expo-localization"],
+    "experiments": { "typedRoutes": true }
+  }
+}
